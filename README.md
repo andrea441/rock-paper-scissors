@@ -2,7 +2,7 @@
 This Rock Paper Scissors project is a console-based game implementation built as part of The Odin Project curriculum. This project demonstrates fundamental skills in JavaScript, specifically focusing on game logic, functions, and loops.
 
 ## Live Demo
-Check out the live version of the project here: **[Rock Paper Scissors Live Demo](https://github.com/andrea441/rock-paper-scissors)**
+Check out the live version of the project here: **[Rock Paper Scissors Live Demo](https://andrea441.github.io/rock-paper-scissors/)**
 
 *(Note: You will need to open your browser's Developer Tools Console to see the game output)*
 
@@ -25,7 +25,7 @@ This project is a practice exercise to test and build competency in:
 You can play the game directly in your browser or run it from your computer.
 
 ### Option 1: Online (Recommended)
-Simply visit the **[Live Demo](https://github.com/andrea441/rock-paper-scissors)**.
+Simply visit the **[Live Demo](https://andrea441.github.io/rock-paper-scissors/)**.
 
 ### Option 2: Run Locally
 If you prefer to run the code on your machine:
