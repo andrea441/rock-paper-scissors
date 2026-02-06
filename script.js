@@ -1,13 +1,14 @@
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function getComputerChoice() {
-    // Get a random integer from 1 to 3, save it in a variable
-    const random = Math.floor(Math.random() * 3) + 1;
-    // Map that integer to a choice and return it like a string
+    const random = getRandomInt(1, 3);
     return (random == 1) ? 'rock' : (random == 2) ? 'paper' : 'scissors';
 }
 
 function getHumanChoice() {
-    // Prompt the user to enter their option, then return it
-    return prompt('Enter your selected choise (rock, paper or scissor): ');
+    return prompt('Enter your selected choice (rock, paper or scissor): ');
 }
 
 function playGame(){
