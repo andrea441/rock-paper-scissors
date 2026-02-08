@@ -1,10 +1,18 @@
 let humanScore = 0;
 let computerScore = 0;
 
+let gameOver = false;
+
 const gamePara = document.querySelector('#game');
 const resultPara = document.querySelector('#result');
-const scorePara = document.querySelector('#score');
 const winnerPara = document.querySelector('#winner');
+const humanScorePara = document.querySelector('#human-score');
+const computerScorePara = document.querySelector('#computer-score');
+const endScreen = document.querySelector('#end-screen');
+const endMessage = document.querySelector('#end-message');
+const restart = document.querySelector('#restart');
+const buttons = document.querySelectorAll('.button button');
+
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -17,11 +25,28 @@ function getComputerChoice() {
 
 function checkWinner() {
     if (humanScore == 5) {
-        winnerPara.textContent = 'You won! Congratulations'
+        endMessage.textContent = 'You won! Congratulations.'
+        endScreen.classList.remove('hidden')
+        gameOver = true;
     } else if (computerScore == 5) {
-        winnerPara.textContent = 'The computer won! Good luck next time';
+        endMessage.textContent = 'The computer won! Good luck next time';
+        endScreen.classList.remove('hidden')
+        gameOver = true;
     }
-    // Logic to block the ongoing game, restart it or whatever.
+}
+
+function restartGame() {
+    humanScore = 0;
+    computerScore = 0;
+    gameOver = false;
+
+    humanScorePara.textContent = 'Human Score: 0';
+    computerScorePara.textContent = 'Computer Score: 0';
+
+    gamePara.textContent = '';
+    resultPara.textContent = '';
+
+    endScreen.classList.add('hidden');
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -35,6 +60,7 @@ function playRound(humanChoice, computerChoice) {
     ) {
         humanScore += 1;
         resultPara.textContent = `You win, ${humanChoice} beats ${computerChoice}.`;
+        humanScorePara.textContent = `Human Score: ${humanScore}`;
     } else if (
         (humanChoice == 'rock' && computerChoice === 'paper') ||
         (humanChoice == 'paper' && computerChoice === 'scissors') ||
@@ -42,17 +68,21 @@ function playRound(humanChoice, computerChoice) {
     ) {
         computerScore += 1;
         resultPara.textContent = `You lose, ${computerChoice} beats ${humanChoice}.`;
+        computerScorePara.textContent = `Computer Score: ${computerScore}`;
     } else {
         resultPara.textContent = 'It is a tie.';
     }
-    scorePara.textContent = `Human score: ${humanScore}, Computer Score: ${computerScore}`
 
     checkWinner();
 }
 
-const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        if (gameOver) return;
         playRound(button.id, getComputerChoice());
     })
+})
+
+restart.addEventListener('click', () => {
+    restartGame();
 })

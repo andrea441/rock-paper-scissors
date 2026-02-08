@@ -1,6 +1,35 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: EAEFEF;
+    font-family: "SN Pro", sans-serif;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    background-color: #BFC9D1;
+}
+
 #content {
-    border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+#sections {
     border-radius: 10px;
+    width: 1000px;
+    height: 500px;
+    background-color: #BFC9D1;
+    box-shadow: 10px 10px 5px 0px #aaaaaa;
 }
 
 #icons {
@@ -8,7 +37,60 @@
     justify-content: space-evenly;
 }
 
+button {
+    background: none;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid black;
+    cursor: pointer;
+    background-color: #25343F;
+}
+
 button img {
     width: 200px;
     height: auto;
+}
+
+#scores {
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#end-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#end-card {
+    background: white;
+    padding: 50px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+#end-card h2 {
+    margin-bottom: 20px;
+}
+
+#restart {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 100px;
+    border: none;
+    color: white;
+}
+
+.hidden {
+    display: none !important;
 }
