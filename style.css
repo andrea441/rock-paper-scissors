@@ -51,6 +51,10 @@ button img {
     height: auto;
 }
 
+.button p {
+    text-align: center;
+}
+
 #scores {
     display: flex;
     justify-content: space-around;
